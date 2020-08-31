@@ -33,21 +33,27 @@ public:
   }
 
   String& operator = (const String &other){
-    printf("Assignment operator - %u %s \n", other.m_pszData, other.m_pszData);
-    std::cout<<"copy constructor"<<std::endl;
-    m_nSize = other.m_nSize;
-    m_pszData = new char[m_nSize];
-    memcpy(m_pszData, other.m_pszData, m_nSize);
+    if ( this != &other)
+    {
+      printf("Assignment operator - %u %s \n", other.m_pszData, other.m_pszData);
+      std::cout<<"copy constructor"<<std::endl;
+      m_nSize = other.m_nSize;
+      m_pszData = new char[m_nSize];
+      memcpy(m_pszData, other.m_pszData, m_nSize);
+    }
     printf("Assignment operator - %u %s\n", m_pszData, m_pszData);
     return *this;
   }
   String& operator = (String &&other){
-    printf("Assignment operator - %u %s \n", other.m_pszData, other.m_pszData);
-    std::cout<<"copy constructor"<<std::endl;
-    m_nSize = other.m_nSize;
-    delete []m_pszData;
-    m_pszData = std::move(other.m_pszData);
-    other.m_pszData = nullptr;
+    if ( this != &other)
+    {
+      printf("Assignment operator - %u %s \n", other.m_pszData, other.m_pszData);
+      std::cout<<"copy constructor"<<std::endl;
+      m_nSize = other.m_nSize;
+      delete []m_pszData;
+      m_pszData = std::move(other.m_pszData);
+      other.m_pszData = nullptr;
+      }
     //memcpy(m_pszData, other.m_pszData, m_nSize);
     printf("Assignment operator - %u %s\n", m_pszData, m_pszData);
     return *this;
