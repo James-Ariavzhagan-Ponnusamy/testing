@@ -52,7 +52,9 @@ public:
     cout<<"Test Constructor "<<endl;
   }
 };
-int main(){
+
+int main()
+{
   SmartPtr<Test> ptr1 (new Test(1));
   SmartPtr<Test> ptr2 (new Test(2));
   ptr1->Display();
@@ -60,5 +62,14 @@ int main(){
   ptr1 = ptr2;
   ptr1->Display();
   (*ptr1).Display();
-
+  return 0;
 }
+
+/*
+    Test::Display 1                                                                                                         
+    Test::Display 1                                                                                                         
+    Test Destructor of 1                                                                                                    
+    Test::Display 2                                                                                                         
+    Test::Display 2                                                                                                         
+    Test Destructor of 2
+*/
