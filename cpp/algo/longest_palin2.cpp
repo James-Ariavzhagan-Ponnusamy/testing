@@ -54,7 +54,42 @@ int main()
 }
 
 /*
+def function_name(p1,n):
+    max_len=0;
+    start = 0;
+    print(p1,n)
+    for i in range(0,n):
+        low=i-1
+        high=i
+        while(low>=0 and high<n and p1[low]==p1[high]):
+            if (high -low+1 > max_len):
+                start = low
+                max_len= high - low + 1
+            low = low - 1
+            high = high + 1
+            
+        low=i-1
+        high=i+1
+        while(low>=0 and high<n and p1[low]==p1[high]):
+            if (high -low+1 > max_len):
+                start = low
+                max_len= high - low + 1
+            low = low - 1
+            high = high + 1
+        
+    print(start,max_len,p1[start:start+max_len])    
+    return
+
+str = "forgeeksskeegfor";
+function_name(str,len(str))
+#output
+#forgeeksskeegfor 16
+#3 10 geeksskeeg  
+
+
+
     max_length 10
     start 3
     The palin substring is     : geeksskeeg
+    
 */
